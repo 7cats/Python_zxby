@@ -14,10 +14,13 @@ def trade_spider(max_pages):
         source_code = requests.get(url)
         plain_text = source_code.text
         soup = BeautifulSoup(plain_text)
-        for lnk in soup.find_all('a', {'class':"ads__unit__link"}):
-            href = "https://www.finn.no" + lnk.get('href')
+        for link in soup.find_all('a', {'class':"ads__unit__link"}):
+            href = "https://www.finn.no" + link.get('href')
+            # get the title
+            title = link.string
             print(href)
+            print(title)
         page += 1
 
-trade_spider(3)
+trade_spider(2)
             
