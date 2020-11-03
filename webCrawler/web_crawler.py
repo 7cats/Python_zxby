@@ -20,7 +20,19 @@ def trade_spider(max_pages):
             title = link.string
             print(href)
             print(title)
+            get_single_item_data(href) 
         page += 1
 
-trade_spider(2)
-            
+def get_single_item_data(item_url):
+    source_code = requests.get(item_url)
+    plain_text = source_code.text
+    soup = BeautifulSoup(plain_text)
+    for item_name in soup.findAll('font', {'style':'vertical-align: inherit;'}):
+        print(item_name.string)
+    for link in soup.findAll('a'):
+        href = str("https://www.finn.no") + str(link.get('href'))
+        print(href)
+        
+        
+trade_spider(1)
+    
