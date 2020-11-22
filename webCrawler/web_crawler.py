@@ -33,6 +33,5 @@ def get_single_item_data(item_url):
         href = str("https://www.finn.no") + str(link.get('href'))
         print(href)
         
-        
 trade_spider(1)
     
