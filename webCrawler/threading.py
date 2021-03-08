@@ -16,7 +16,9 @@ class messenger(threading.Thread):
 thread1 = messenger(name = 'send')
 thread2 = messenger(name = 'receive')
 
+print("I don't know how to use python")
+
 thread1.start()
 thread2.start()
 
-print("to test branch");
+print("to test branch")
